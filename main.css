@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    border: 0;
+}
+body{
+    width: 1366px;
+    height: 2088px;
+    background: #EFFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+.jobs{
+    width: 1110px;
+    height: 152px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.company-logo{
+    width: 88px;
+    height: 88px;
+    padding: 32px 24px 32px 40px;
+}
+
+.info{
+    width: 266px;
+    height: 88px;
+    padding:32px 0px 32px 0px;
+    font-size: small;
+}
+h1{
+    display: inline-block;
+}
+p{
+    display:inline-block;
+    font-family: "spartan";
+}
+.skills{
+    width: 400px;
+    height: 32px;
+    padding: 60px 0px 60px 252px;
+}
+
+.new{
+    width: 51px;
+    height: 24px;
+    background-color: #5CA5A5;
+    color: #FFFFFF;
+    padding:6px 8px 4px 8px;
+    border-radius: 1em;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: -0.0846154px;
+}
+
+.company-name{
+    font-family: "Spartanz";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+}
