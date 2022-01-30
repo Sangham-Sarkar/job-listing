@@ -3,72 +3,130 @@
     border: 0;
 }
 body{
-    width: 1366px;
-    height: 2088px;
     background: #EFFAFA;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+#background-img{
+    width: 100%;
+    background-color: #5CA5A5;
+}
+
 #main-container{
     display: flex;
     flex-direction: column;
-    row-gap: 24px;
+    width: 80%;
+    padding-top: 4em;
+    row-gap: 2em;
 }
-.jobs{
-    width: 1110px;
-    height: 152px;
-    background-color: white;
+
+.job{
     display: flex;
-    flex-direction: row;
+    background-color: white;
 }
 
-.company-logo{
-    width: 88px;
-    height: 88px;
-    padding: 32px 24px 32px 40px;
+.logo{
+    padding: 1em 1.2em 1em 2em;
 }
 
-.info{
-    width: 266px;
-    height: 88px;
-    padding:32px 0px 32px 0px;
-    font-size: small;
+.context{
+    padding-top: 0.7em;
 }
-h1{
+
+.companyName{
     display: inline-block;
-}
-p{
-    display:inline-block;
-    font-family: "spartan";
-}
-.skills{
-    width: 400px;
-    height: 32px;
-    padding: 60px 0px 60px 252px;
-}
-
-.new{
-    width: 51px;
-    height: 24px;
-    background-color: #5CA5A5;
-    color: #FFFFFF;
-    padding:6px 8px 4px 8px;
-    border-radius: 1em;
     font-family: "Spartan";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 11px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: -0.0846154px;
-}
-
-.company-name{
-    font-family: "Spartanz";
+    color: #5CA5A5;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 16px;
+    padding-top: 1em;
+}
+
+
+.newTag{
+    color: white;
+    background-color: #5CA5A5;
+    padding:6px 8px 4px 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: "Spartan";
+    line-height: 14px;
+    border-radius: 12px;
+}
+
+.featureTag{
+    color: white;
+    background-color: #2B3939;
+    padding:6px 8px 4px 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: "Spartan";
+    line-height: 14px;
+    border-radius: 12px;
+}
+
+.pos{
+    color: #2B3939;
+    padding-top: 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Spartan";
+}
+
+.pos:hover{
+    color:#5CA5A5;
+    cursor: pointer;
+}
+
+.subInfo{
+    color: #7C8F8F;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.115385px;
+}
+
+.dot{
+    color: #7C8F8F;
+}
+.skills{
+    margin-left: auto;
+    margin-right: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillBtn{
+    background-color: hsl(180, 31%, 95%);
+    border-radius: 4px;
+    column-gap: 16px;
+    padding: 4px 8px 4px 8px;
+    color: #5CA5A5;
+    margin-left: 1em;
+    font-family: "Spartan";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.1px;
+    
+}
+
+.skillBtn:hover{
+    background-color: #5CA5A5;
+    color:hsl(180, 31%, 95%);
+    cursor: pointer;
 }

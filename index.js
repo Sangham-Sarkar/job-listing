@@ -1,55 +1,52 @@
-const getJob = async() => await ((await fetch("./data.json")).json()) ;
+const filterState = [];
+const getJob = async () => await (await fetch("./data.json")).json();
 const jobContainer = document.getElementById("main-container");
-const allJobs = getJob().then(res =>{
-        for(i=0 ; i<res.length ; i++){
-            const subJobContainer = document.createElement("div");
-            const div1 = document.createElement("div");
-            const div2 = document.createElement("div");
-            const logo = document.createElement("img");
-            logo.classList.add("company-logo")
-            logo.src = res[i]['logo'];
-            const job = document.createElement('h1');
-            job.innerHTML = res[i]['company'];
-            job.classList.add("company-name");
-            const pos = document.createElement("h2");
-            pos.innerHTML = res[i]['position'];
-            const date = document.createElement("p");
-            date.innerHTML = res[i]['postedAt'];
-            const dur = document.createElement("p");
-            dur.innerHTML = res[i]['contract'];
-            const loc = document.createElement("p");
-            loc.innerHTML = res[i]['location'];
-            const role = document.createElement("p");
-            role.innerHTML = res[i]["role"];
-            const lang = document.createElement("p");
-            lang.innerHTML = res[i]["languages"];
-            const tools = document.createElement("p");
-            tools.innerHTML = res[i]["tools"];
-            subJobContainer.appendChild(logo);
-            div1.appendChild(job);
-            if (res[i]["new"] === true) {
-                const newLogo = document.createElement("span");
-                newLogo.innerHTML = "NEW!"; 
-                newLogo.classList.add("new");
-                div1.append(newLogo);
-            }
-            if (res[i]["featured"] === true) {
-                const newFeature = document.createElement("span");
-                newFeature.innerHTML = "FEATURED"; 
-                div1.append(newFeature);
-            }
-            div1.appendChild(pos);
-            div1.appendChild(date);
-            div1.appendChild(dur);
-            div1.appendChild(loc);
-            subJobContainer.appendChild(div1);
-            div1.classList.add("info");
-            div2.appendChild(role);
-            div2.appendChild(lang);
-            div2.appendChild(tools);
-            subJobContainer.appendChild(div2);
-            div2.classList.add("skills");
-            jobContainer.appendChild(subJobContainer);
-            subJobContainer.classList.add("jobs")
-        }
-});
+const searchBox = document.getElementById("searchBox");
+
+let cardTemplate = ``
+
+const jobCard = () => {
+  getJob().then(jobs => {
+    for (let job of jobs) {
+      cardTemplate += `<div class="job">
+        <img class="logo" src='${job.logo}'/>
+        <div class="context">
+          <h2 class="companyName">${job.company}</h2>
+          ${job.new ? '<span class="newTag">NEW!</span>' : ''}
+          ${job.featured ? '<span class="featureTag">FEATURED</span>':''}
+          <h2 class="pos">${job.position}</h2>
+          <p>
+            <span class="subInfo">${job.postedAt}</span>
+            <span class="dot">●</span>
+            <span class="subInfo">${job.contract}</span>
+            <span class="dot">●</span>
+            <span class="subInfo">${job.location}</span>
+          </p>
+        </div>
+        ${skillCreator(job.role,job.tools,job.languages)}
+      </div>  
+      `
+    }
+    jobContainer.innerHTML =  cardTemplate;
+  })
+}
+
+const skillCreator = (role,tools,languages) =>{
+  return `<div class="skills">
+    <span class="skillBtn" onclick="checker(this)">${role}</span>
+    ${tools.map(tool => `<span class="skillBtn" onclick="checker(this)">${tool}</span>`).join('')}
+    ${languages.map(lang => `<span class="skillBtn" onclick="checker(this)">${lang}</span>`).join('')}
+    </div>
+  `
+}
+
+const checker = (e) =>{
+  if (filterState.includes(e.innerHTML)){
+
+  }else{
+    filterState.push(e.innerHTML);
+    console.log(filterState);
+  }
+}
+
+jobCard();
