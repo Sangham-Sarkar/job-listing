@@ -1,4 +1,4 @@
-const filterState = [];
+let filterState = [];
 const getJob = async () => await (await fetch("./data.json")).json();
 const jobContainer = document.getElementById("main-container");
 const searchBox = document.getElementById("searchBox");
@@ -42,11 +42,40 @@ const skillCreator = (role,tools,languages) =>{
 
 const checker = (e) =>{
   if (filterState.includes(e.innerHTML)){
-
   }else{
     filterState.push(e.innerHTML);
+    filterBarCreator();
     console.log(filterState);
   }
+}
+
+const filterChecker = (job) =>{
+  console.log(job);
+  if(filterState.length != 0){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+const filterBarCreator = () =>{
+  let template = ``;
+  template += `<div class="searchFilterBox">
+  ${filterState.map(filter => `<div class="filters">
+  <div class="filterValues">${filter}</div>
+    <div class="removeBtn">
+      <img src="./images/icon-remove.svg"/>
+    </div>
+  </div>`
+    ).join('')}
+    </div>
+    <div id="clearBtn" onclick="removefnc(this)">Clear</div>`
+    searchBox.innerHTML = template;
+}
+
+const removefnc = (e) =>{
+  filterState = [];
+  searchBox.innerHTML = '';
 }
 
 jobCard();
